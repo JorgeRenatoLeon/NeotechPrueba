@@ -5,7 +5,6 @@
 		header('Location: index.php');
 		exit();
 	}
-
 	$loginURL = $gClient->createAuthUrl();
 ?>
 <!doctype html>
