@@ -45,6 +45,9 @@
 						</tr>
 					</tbody>
 				</table>
+				<form action="logout.php" method="POST">
+					<input type="submit">
+				</form>
 			</div>
 		</div>
 		<form action="insert.php" method="POST">
