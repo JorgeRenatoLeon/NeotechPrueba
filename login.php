@@ -31,10 +31,6 @@
                     <input type="submit" value="Log In" class="btn btn-primary">
                     <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Google" class="btn btn-danger">
                 </form>
-
-				<form action="logout.php" method="POST">
-					<input type="submit">
-				</form>
             </div>
         </div>
     </div>

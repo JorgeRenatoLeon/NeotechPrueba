@@ -46,7 +46,7 @@
 					</tbody>
 				</table>
 				<form action="logout.php" method="POST">
-					<input type="submit">
+					<input type="submit" value="Logout" placeholder="Logout">
 				</form>
 			</div>
 		</div>
