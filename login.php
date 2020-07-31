@@ -5,6 +5,31 @@
 		header('Location: index.php');
 		exit();
 	}
+    if (isset($_POST['login'])) {
+        require("connection.php");
+        echo '<script>console.log("Ingresando")</script>';
+        $password = mysqli_real_escape_string($connect, $_POST['password']);
+        $correo = mysqli_real_escape_string($connect, $_POST['correo']);
+        $sql = "SELECT * FROM alumnos WHERE correo='$correo' AND password='$password' ";
+        $result = $connect->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $_SESSION['access_token'] = $row["correo"];
+            $_SESSION['id'] = $row["grado"];
+            $_SESSION['email'] = $row["correo"];
+            $_SESSION['gender'] = '';
+            $_SESSION['picture'] ='';
+            $_SESSION['familyName'] = '';
+            $_SESSION['givenName'] = '';
+            header('Location: index.php');
+        }
+        else{
+            echo '<script>alert("Login Fallido")</script>';
+            header('Location: login.php');
+        }
+		exit();
+	}
 
 	$loginURL = $gClient->createAuthUrl();
 ?>
@@ -21,14 +46,14 @@
 <body>
     <div class="container" style="margin-top: 100px">
         <div class="row justify-content-center">
-            <div class="col-md-6 col-offset-3" align="center">
+            <div class="col-md-6 col-offset-3" style="text-align:center">
 
-                <img src="images/logo.png"><br><br>
+                <img src="https://banner2.cleanpng.com/20180418/gre/kisspng-human-resources-login-management-information-payro-track-5ad7cda3586cb1.5605091515240923233622.jpg" width="100px"><br><br>
 
-                <form >
-                    <input placeholder="Email..." name="email" class="form-control"><br>
-                    <input type="password" placeholder="Password..." name="password" class="form-control"><br>
-                    <input type="submit" value="Log In" class="btn btn-primary">
+                <form method="POST">
+                    <input placeholder="Correo..." name="correo" id="password" class="form-control"><br>
+                    <input type="password" placeholder="Password..." name="password" id="password" class="form-control"><br>
+                    <input type="submit" name="login" value="Login" class="btn btn-primary">
                     <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Google" class="btn btn-danger">
                 </form>
             </div>

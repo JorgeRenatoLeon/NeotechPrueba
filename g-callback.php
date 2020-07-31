@@ -21,6 +21,15 @@
 	$_SESSION['familyName'] = $userData['familyName'];
 	$_SESSION['givenName'] = $userData['givenName'];
 
-	header('Location: index.php');
+	if(strpos($_SESSION['email'], '.edu') !== false){
+		header('Location: index.php');
+	}
+	else{
+		require_once "config.php";
+		unset($_SESSION['access_token']);
+		$gClient->revokeToken();
+		session_destroy();
+		header('Location: login.php');
+	}
 	exit();
 ?>
