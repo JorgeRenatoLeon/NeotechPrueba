@@ -45,9 +45,11 @@
 						</tr>
 					</tbody>
 				</table>
+				<input type="button" name="logout" onclick="window.location = 'logout.php';"value="Cerrar sesión" class="btn btn-primary">
+				
 			</div>
 		</div>
-		<form action="insert.php" method="POST">
+		<!--form action="insert.php" method="POST">
 			<p>
 				<label for="grado">Grado:</label>
 				<input type="number" name="grado" id="grado">
@@ -57,6 +59,6 @@
 				<input type="text" name="correo" id="correo">
 			</p>
 			<input type="submit" name="save" value="save">
-		</form>
+		</form-->
 	</body>
 </html>

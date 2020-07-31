@@ -21,16 +21,13 @@
     <div class="container" style="margin-top: 100px">
         <div class="row justify-content-center">
             <div class="col-md-6 col-offset-3" align="center">
-
                 <img src="images/logo.png"><br><br>
-
-                <form >
-                    <input placeholder="Email..." name="email" class="form-control"><br>
-                    <input type="password" placeholder="Password..." name="password" class="form-control"><br>
-                    <input type="submit" value="Log In" class="btn btn-primary">
-                    <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Google" class="btn btn-danger">
+                <form action="insert.php" method="POST">
+                    <input placeholder="Grado" name="grade" class="form-control"><br>
+                    <input placeholder="Correo" name="email" class="form-control"><br>                    
+                    <input type="submit"  value="Iniciar sesión" class="btn btn-primary">
+                    <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Iniciar sesión con Google" class="btn btn-danger">
                 </form>
-
             </div>
         </div>
     </div>
